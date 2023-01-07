@@ -1,14 +1,14 @@
 import React from 'react'
 import Button from '../components/Button'
-import logo from '../images/logo.png'
+import logo from '../assets/images/logo.png'
 
 const Register = () => {
   return (
-    <div className='bg-bgImg h-screen w-screen bg-cover bg-center flex justify-end pr-28 items-center'>
+    <div className='bg-bgImg h-screen w-screen bg-cover bg-center flex justify-center md:justify-end px-10 md:pl-0 md:pr-28 items-center'>
     <div className='bg-[#110F11] w-[30rem] h-[80vh] rounded-3xl p-8'>
     <div  className='flex flex-row w-full justify-between items-center'>
     <div>
-        <img src={logo} alt=""/>
+        <img src={logo} alt="" className='w-28 md:w-32'/>
       </div>
       <p className='font-semibold underline cursor-pointer hover:text-[#992865]'>Login</p>
     </div>
