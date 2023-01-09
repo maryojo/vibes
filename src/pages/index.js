@@ -5,30 +5,15 @@ import SongCard from "../components/SongCard";
 import ArtistCard from "../components/ArtistCard";
 import { useGetTopChartsQuery}  from "../redux/services/shazam";
 import Loader from "../components/Loader";
+import TrendingSongs from "../components/TrendingSongs";
+import TopArtists from "../components/TopArtists";
 
 
 
 const Home = () => {
-  const { data, isFetching, error }  = useGetTopChartsQuery();
-  let musics = [];
-  let artistArr = [];
 
 
-
-
-  if(data){
-    musics = data.tracks;
-    
-}
-
-
-
-  console.log(data);
-  // const musics = data.tracks;
-  // console.log(musics)
-  if(data){
-    console.log(data.tracks);
-  }
+  
 
   return (
     <DefaultLayout>
@@ -45,18 +30,7 @@ const Home = () => {
         <p  className="font-semibold text-xl">Trending Songs</p>
         <p className="font-thin ml-3 text-gray-500 cursor-pointer hover:text-gray-400">See all</p>
         </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-            {
-              musics?.map((song) =>(
-                <SongCard 
-                  key={song.key}
-                  link={`/songs/${song.key}`}
-                  Title={song.title}
-                  CoverURL={song.images?.coverart}
-                  Artist={song.subtitle}
-                />
-              ))}
-          </div>
+          <TrendingSongs/>
         </div>
         <div>
         <p className="font-semibold text-xl ">Trending Songs</p>
@@ -68,19 +42,7 @@ const Home = () => {
         </div>
         <div className="flex flex-col items-center">
           <p className="font-semibold text-xl mb-3">Top Artists</p>
-          <div className="flex flex-col gap-5">
-           {
-            musics?.map((song) =>(
-              <ArtistCard
-                key={song.key}
-                // link={`/artists/${song.artists[0].adamid}`}
-                artistImgURL={song.images?.background}
-                artistName={song.subtitle}
-
-              />
-            ))
-           }
-          </div>
+          <TopArtists/>
         </div>
       </div>
     </DefaultLayout>
