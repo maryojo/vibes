@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DefaultArtistImg from "../assets/images/default-artist-image-sm.png";
 
+
 const ArtistCard = ({ artistImgURL, artistName, link }) => {
   let artistArray = artistName.split(" & " || ", " || ",");
   let firstArtist = artistArray[0];

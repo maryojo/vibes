@@ -1,6 +1,8 @@
 import React from "react";
+import PlayPauseButton from "./PlayPauseButton";
+import { playPause, setActiveSong } from '../redux/features/playerSlice';
 
-const MusicControl = ({ style, currentURL, Title }) => {
+const MusicControl = ({ style, currentURL, Title, songId, songName, artist, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => {
   return (
     <div className={`glass-effect w-[90%]  rounded-full z-10 ${style} flex items-center p-2 px-10 `}>
     <div className=" w-full h-full flex items-center justify-between">
@@ -36,26 +38,21 @@ const MusicControl = ({ style, currentURL, Title }) => {
       <div className="flex gap-3">
       <img src={currentURL} className="h-10 w-10 rounded-full bg-gray-300"/>
       <div className="flex flex-col justify-between">
-        <p className="font-semibold text-sm">Song name</p>
-        <p className="font-thin text-xs text-gray-400">Artist</p>
+        <p className="font-semibold text-sm">{songName}</p>
+        <p className="font-thin text-xs text-gray-400">{artist}</p>
       </div>
       </div>
       
       <div></div>
       <div className="flex items-center gap-5">
-        <svg
-        className="cursor-pointer"
-          width="30"
-          height="31"
-          viewBox="0 0 40 41"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10.4167 5.5C8.34568 5.5 6.66675 7.17893 6.66675 9.25V31.75C6.66675 33.821 8.34568 35.5 10.4167 35.5H14.5834C16.6545 35.5 18.3334 33.821 18.3334 31.75V9.25C18.3334 7.17893 16.6545 5.5 14.5834 5.5H10.4167ZM25.4167 5.5C23.3457 5.5 21.6667 7.17893 21.6667 9.25V31.75C21.6667 33.821 23.3457 35.5 25.4167 35.5H29.5834C31.6544 35.5 33.3334 33.821 33.3334 31.75V9.25C33.3334 7.17893 31.6544 5.5 29.5834 5.5H25.4167Z"
-            fill="#F2F2F2"
-          />
-        </svg>
+        <PlayPauseButton
+          isPlaying={isPlaying}
+          activeSong={activeSong}
+          handlePauseClick={handlePauseClick}
+          handlePlayClick={handlePlayClick}
+          section = 'main-control'
+          length = {30}
+        />
         <svg
         className="cursor-pointer"
           width="24"
