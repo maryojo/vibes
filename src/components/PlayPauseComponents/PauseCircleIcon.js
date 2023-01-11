@@ -1,8 +1,9 @@
 import React from "react";
 
-const PauseCircleIcon = ({ length }) => {
+const PauseCircleIcon = ({ length, click }) => {
   return (
     <svg
+      onClick={click}
       width={length}
       height={length}
       viewBox="0 0 24 24"

@@ -1,8 +1,9 @@
 import React from 'react'
 
-const PauseIcon = ({length}) => {
+const PauseIcon = ({length, click}) => {
   return (
     <svg
+    onClick={click}
     className="cursor-pointer"
       width='30'
       height='30'

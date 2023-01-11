@@ -9,7 +9,7 @@ const DefaultLayout = ({children, visibility}) => {
       <div className='p-16 pl-20 w-full'>
       {children}
       </div>
-      <MusicControl style={` ${visibility} fixed bottom-3 left-[50.5%]`} />
+      {/* <MusicControl style={` ${visibility} fixed bottom-3 left-[50.5%]`} /> */}
     </div>
   )
 }

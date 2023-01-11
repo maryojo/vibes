@@ -1,13 +1,24 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import DefaultMusicCoverImg from "../assets/images/default-music-image.png";
-import PlayPauseButton from "./PlayPauseButton";
+import PlayPauseButton from "./PlayPauseComponents/PlayPauseButton";
+import { playPause, setActiveSong } from '../redux/features/playerSlice'
 
-const SongCard = ({ Title, Artist, link, CoverURL, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => {
-  // console.log(typeof Artist);
-  // let artistArray = Artist.split(' & ' || ', ' || ',');
-  // let firstArtist = artistArray[0];
-  // Artist = firstArtist;
+const SongCard = ({ Title, Artist, link, CoverURL, isPlaying, activeSong, songData, i, song }) => {
+  const dispatch = useDispatch();
+  
+  const handlePauseClick = () => {
+    dispatch(playPause(false));
+
+  };
+
+  const handlePlayClick = () => {
+    dispatch(setActiveSong({ song, songData, i }));
+    dispatch(playPause(true));
+
+  };
+
   return (
     <div>
       <div className="flex flex-col p-3 pb-5 rounded-2xl bg-black gap-4">
@@ -21,19 +32,25 @@ const SongCard = ({ Title, Artist, link, CoverURL, isPlaying, activeSong, handle
             <PlayPauseButton 
               section='song-card'
               length={50}
+              isPlaying={isPlaying}
+              song={song}
+              activeSong={activeSong}
+              handlePause={handlePauseClick}
+              handlePlay={handlePlayClick}
             />
+            
           </div>
         </div>
 
         <div className="flex flex-col gap-2">
           <div className="flex justify-between">
-            <Link  to={link}>
-              <p className="font-semibold text-sm  cursor-pointer hover:underline">
+            <Link  to={link} className='w-10/12'>
+              <p className="font-semibold text-sm cursor-pointer hover:underline truncate">
                 {Title}
               </p>
             </Link>
             <svg
-              className="invisible"
+              className={` ${activeSong?.title === Title ? 'visible' : 'invisible'}`}
               width="17"
               height="17"
               viewBox="0 0 24 24"
@@ -46,7 +63,7 @@ const SongCard = ({ Title, Artist, link, CoverURL, isPlaying, activeSong, handle
               />
             </svg>
           </div>
-          <p className="text-gray-500 text-xs">{Artist}</p>
+          <p className="text-gray-500 text-xs truncate">{Artist}</p>
         </div>
       </div>
     </div>

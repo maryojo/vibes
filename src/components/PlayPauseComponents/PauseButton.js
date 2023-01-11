@@ -3,14 +3,14 @@ import PauseCircleIcon from './PauseCircleIcon'
 import PauseIcon from './PauseIcon';
 
 
-const PauseButton = ({length, section}) => 
+const PauseButton = ({length, section, click}) => 
 ( section === 'main-control' ? (
-  <PauseIcon length={length}/>
+  <PauseIcon length={length} click={click}/>
 ): 
   section === 'song-card' ? (
-    <PauseCircleIcon length={length}/>
+    <PauseCircleIcon length={length} click={click}/>
   ): (
-    <PauseIcon length={length}/>
+    <PauseIcon length={length} click={click}/>
   ) );
 
 

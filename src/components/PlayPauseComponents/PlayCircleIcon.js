@@ -1,8 +1,9 @@
 import React from 'react'
 
-const PlayCircleIcon = ({length}) => {
+const PlayCircleIcon = ({length, click}) => {
   return (
     <svg
+    onClick={click}
     width={length}
     height={length}
     viewBox="0 0 100 100"

@@ -9,14 +9,14 @@ const TopArtists = () => {
   let artistArr = [];
 
   if (data) {
-    musics = data.tracks;
+    musics = data.tracks.slice(0, 5);
   }
 
-  console.log(data);
+  // console.log(data);
   // const musics = data.tracks;
   // console.log(musics)
   if (data) {
-    console.log(data.tracks);
+    // console.log(data.tracks);
   }
 
   return (
@@ -24,7 +24,7 @@ const TopArtists = () => {
       {musics?.map((song) => (
         <ArtistCard
           key={song.key}
-          // link={`/artists/${song?.artists[0]?.adamid}`}
+          link={`/artists/${song?.artists[0]?.adamid}`}
           artistImgURL={song?.images?.background}
           artistName={song?.subtitle}
         />
