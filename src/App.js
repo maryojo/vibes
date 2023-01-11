@@ -7,6 +7,8 @@ import Register from './pages/register';
 import Explore from './pages/explore';
 import Genre from './pages/genre';
 import TrendingSongs from './pages/trending-songs';
+import ArtistDetails from './pages/artist-details';
+import SongDetails from './pages/song-details';
 
   
 function App() {
@@ -18,6 +20,8 @@ return (
         <Route path='/discover' element={<Explore/>} />
         <Route path='/genre' element={<Genre/>} />
         <Route path='/trending-songs' element={<TrendingSongs/>} />
+        <Route path='/artists/:artistid' element={<ArtistDetails/>} />
+        <Route path='/songs/:songid' element={<SongDetails/>} />
     </Routes>
     </Router>
 );

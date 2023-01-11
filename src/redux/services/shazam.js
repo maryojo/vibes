@@ -14,8 +14,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 		endpoints: (builder) =>({
 			getTopCharts: builder.query({ query: () => '/charts/track'}),
 			getAllSongs: builder.query({ query: () => '/songs/list-recommendations' }),
-			getSongDetails: builder.query({ query: () => '/songs/v2/get-details' })
-
+			getSongDetails: builder.query({ query: ({songid}) => `/songs/get-details?key=${songid}` }),
+			getSimilarSongs: builder.query({ query: ({songid}) => `/shazam-songs/list-similarities?id=track-similarities-id-${songid}`})
 		}),
 		
   });
@@ -24,5 +24,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 		useGetTopChartsQuery,
 		useGetAllSongsQuery,
 		useGetSongDetailsQuery,
+		useGetSimilarSongsQuery,
 	} = shazamApi;
 	

@@ -54,11 +54,11 @@ const Home = () => {
       {musics?.map((song, i) => (
         <SongCard
           i={i}
-          key={song.key}
-          link={`/songs/${song.key}`}
-          Title={song.title}
-          CoverURL={song.images?.coverart}
-          Artist={song.subtitle}
+          key={song?.key}
+          link={`/songs/${song?.key}`}
+          Title={song?.title}
+          CoverURL={song?.images?.coverart}
+          Artist={song?.subtitle}
           song={song}
           isPlaying={isPlaying}
           activeSong={activeSong}
