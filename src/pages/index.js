@@ -36,7 +36,7 @@ const Home = () => {
     <DefaultLayout>
       <div className="w-full flex justify-between ">
         <p className="font-bold text-xl sm:text-2xl md:text-3xl">Hello</p>
-        <div className="flex">
+        <div className="w-6/12 lg:w-4/12">
           <Searchbar />
         </div>
       </div>
