@@ -33,12 +33,12 @@ const SongCard = ({
 
   return (
     <div>
-      <div className={`flex flex-col p-[0.5rem] md:p-3 pb-3 md:pb-5 rounded-2xl bg-black gap-4 ${styling}`}>
+      <div className={`flex flex-col p-[0.5rem] md:p-[0.65rem] lg:p-3 pb-3 md:pb-5 rounded-2xl bg-black gap-4 ${styling}`}>
         <div className="imgEffectContainer cursor-pointer">
           <img
             src={CoverURL ? CoverURL : DefaultMusicCoverImg}
             alt={Title}
-            className="max-h-32 md:max-h-52 w-52 object-cover object-center rounded-xl"
+            className="max-h-32 md:max-h-52 w-full object-cover object-center rounded-xl"
           />
           <div class="effect">
             <PlayPauseButton

@@ -53,7 +53,7 @@ const Home = () => {
                 </p>
               </Link>
             </div>
-            <div className="flex flex-wrap justify-between gap-2 sm:gap-3 md:gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-4">
               {musics?.map((song, i) => (
                 <SongCard
                   i={i}
@@ -65,8 +65,9 @@ const Home = () => {
                   song={song}
                   isPlaying={isPlaying}
                   activeSong={activeSong}
-                  styling="w-[7.4rem] sm:w-[8.5rem] md:w-[10.4rem]"
+                  styling=""
                 />
+        
               ))}
             </div>
           </div>
