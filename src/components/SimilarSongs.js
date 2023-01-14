@@ -23,7 +23,7 @@ const SimilarSongs = ({songid}) => {
   return (
     <div>
     <p className='font-semibold text-xl mb-3'>More like this</p>
-    <div className='flex flex-col gap-3'>
+    <div className='grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-col gap-3'>
       {songlistArr?.map((song, i) => (
         <SongCard
           i={i}

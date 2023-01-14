@@ -47,7 +47,7 @@ const SongDetails = () => {
   return (
     <DefaultLayout>
       <Back title="Song Details" />
-      <div className="flex md:flex-row flex-col w-full gap-7 md:gap-10">
+      <div className="flex md:flex-row flex-col w-full gap-7 md:gap-10 mt-5">
         <div className="w-full md:w-9/12 flex flex-col gap-7">
           <div>
           { !displayStatus ? 
@@ -102,7 +102,7 @@ const SongDetails = () => {
             </div>
           </div>
         </div>
-        <div className="w-2/12">
+        <div className="md:w-2/12">
           <SimilarSongs songid={songid} />
         </div>
       </div>
