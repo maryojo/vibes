@@ -1,17 +1,21 @@
-import React from 'react'
-import { Player } from '@lottiefiles/react-lottie-player';
-import LoadingAnimation from '../assets/animations/loading-animation.json'
+import React from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
+import LoadingAnimation from "../assets/animations/loading-animation.json";
+import DefaultLayout from "../components/DefaultLayout";
 
-
-const Loader = ({visibility}) => {
+const Loader = () => {
   return (
-    <Player
-    src={LoadingAnimation}
-    autoplay
-    loop
-    className={`w-64 h-64 ${visibility}`}>
-    </Player>
-  )
-}
+    <DefaultLayout>
+      <div className="w-full h-full flex justify-center items-center">
+        <Player
+          src={LoadingAnimation}
+          autoplay
+          loop
+          className={`w-64 h-64`}
+        ></Player>
+      </div>
+    </DefaultLayout>
+  );
+};
 
-export default Loader
+export default Loader;

@@ -25,9 +25,7 @@ const Home = () => {
 
   if (isFetching)
     return (
-      <DefaultLayout>
-        <Loader />
-      </DefaultLayout>
+      <Loader/>
     );
 
   // if (error) return <Error />;

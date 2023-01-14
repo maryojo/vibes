@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useGetSongDetailsQuery } from "../redux/services/shazam";
@@ -9,11 +9,10 @@ import Back from "../components/Back";
 import DefaultLayout from "../components/DefaultLayout";
 import Loader from "../components/Loader";
 import SimilarSongs from "../components/SimilarSongs";
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player";
 
-import DefaultImage from '../assets/images/default-music-image.png'
+import DefaultImage from "../assets/images/default-music-image.png";
 import MusicPlayer from "../components/MusicPlayer";
-
 
 const SongDetails = () => {
   const { songid } = useParams();
@@ -32,17 +31,9 @@ const SongDetails = () => {
     } else {
       setDisplayStatus(false);
     }
-  }
+  };
 
-
-  if (isFetching)
-    return (
-      <DefaultLayout>
-        <Loader />
-      </DefaultLayout>
-    );
-
-  
+  if (isFetching) return <Loader />;
 
   return (
     <DefaultLayout>
@@ -50,21 +41,26 @@ const SongDetails = () => {
       <div className="flex md:flex-row flex-col w-full gap-7 md:gap-10 mt-5">
         <div className="w-full md:w-9/12 flex flex-col gap-7">
           <div>
-          { !displayStatus ? 
-            (<img
-              src={data?.images?.coverart}
-              alt={data?.title}
-              className="rounded-2xl w-full object-cover object-center h-[50vh] md:h-[70vh]"/>
+            {!displayStatus ? (
+              <img
+                src={data?.images?.coverart}
+                alt={data?.title}
+                className="rounded-2xl w-full object-cover object-center h-[50vh] md:h-[70vh]"
+              />
             ) : (
-              <ReactPlayer url={data?.sections[2]?.youtubeurl?.actions[0]?.uri} className='w-full md:h-[70vh]' width={400} >
-              </ReactPlayer>
-            )
-          }
+              <ReactPlayer
+                url={data?.sections[2]?.youtubeurl?.actions[0]?.uri}
+                className="w-full md:h-[70vh]"
+                width={400}
+              ></ReactPlayer>
+            )}
           </div>
           <div>
             <div className="flex justify-between items-center md:items-start">
               <div className="flex flex-col gap-3">
-                <p className="text-lg md:text-xl font-semibold">{data?.title}</p>
+                <p className="text-lg md:text-xl font-semibold">
+                  {data?.title}
+                </p>
                 <div className="flex items-center gap-3 pb-7">
                   <img
                     src={data?.images?.background}
@@ -106,7 +102,7 @@ const SongDetails = () => {
           <SimilarSongs songid={songid} />
         </div>
       </div>
-      <MusicPlayer/>
+      <MusicPlayer />
     </DefaultLayout>
   );
 };
