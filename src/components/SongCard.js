@@ -18,6 +18,7 @@ const SongCard = ({
   songData,
   i,
   song,
+  styling,
 }) => {
   const dispatch = useDispatch();
 
@@ -32,7 +33,7 @@ const SongCard = ({
 
   return (
     <div>
-      <div className="flex flex-col p-3 pb-5 rounded-2xl bg-black gap-4">
+      <div className={`flex flex-col p-[0.5rem] md:p-3 pb-3 md:pb-5 rounded-2xl bg-black gap-4 ${styling}`}>
         <div className="imgEffectContainer cursor-pointer">
           <img
             src={CoverURL ? CoverURL : DefaultMusicCoverImg}
@@ -55,7 +56,7 @@ const SongCard = ({
         <div className="flex flex-col gap-2">
           <div className="flex justify-between">
             <Link to={link} className="w-10/12">
-              <p className="font-semibold text-sm cursor-pointer hover:underline truncate">
+              <p className="font-semibold text-xs sm:text-sm cursor-pointer hover:underline truncate">
                 {Title}
               </p>
             </Link>

@@ -18,7 +18,7 @@ const Back = ({title, subtitle}) => {
       />
     </div>
     <div className='flex gap-3 justify-center items-end'>
-    <p className="font-bold text-2xl text-white">{title}</p>
+    <p className="font-bold text-xl md:text-2xl text-white">{title}</p>
     <p className="font-thin ml-3 text-gray-500">{subtitle}</p>
     </div>
 

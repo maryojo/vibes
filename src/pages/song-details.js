@@ -47,24 +47,24 @@ const SongDetails = () => {
   return (
     <DefaultLayout>
       <Back title="Song Details" />
-      <div className="flex flex-row w-full gap-10">
-        <div className="w-9/12 flex flex-col gap-7">
+      <div className="flex md:flex-row flex-col w-full gap-7 md:gap-10">
+        <div className="w-full md:w-9/12 flex flex-col gap-7">
           <div>
           { !displayStatus ? 
             (<img
               src={data?.images?.coverart}
               alt={data?.title}
-              className="rounded-2xl w-full object-cover object-center h-[70vh]"/>
+              className="rounded-2xl w-full object-cover object-center h-[50vh] md:h-[70vh]"/>
             ) : (
-              <ReactPlayer url={data?.sections[2]?.youtubeurl?.actions[0]?.uri} className='w-full h-[70vh]' >
+              <ReactPlayer url={data?.sections[2]?.youtubeurl?.actions[0]?.uri} className='w-full md:h-[70vh]' width={400} >
               </ReactPlayer>
             )
           }
           </div>
           <div>
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center md:items-start">
               <div className="flex flex-col gap-3">
-                <p className="text-xl font-semibold">{data?.title}</p>
+                <p className="text-lg md:text-xl font-semibold">{data?.title}</p>
                 <div className="flex items-center gap-3 pb-7">
                   <img
                     src={data?.images?.background}
@@ -87,7 +87,7 @@ const SongDetails = () => {
                   for="display-checkbox"
                   data-on="Video"
                   data-off="Audio"
-                  class="btn-color-mode-switch-inner"
+                  class="btn-color-mode-switch-inner text-sm"
                 ></label>
               </label>
             </div>

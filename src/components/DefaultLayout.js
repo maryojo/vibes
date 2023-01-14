@@ -3,9 +3,9 @@ import Navbar from './Navbar'
 
 const DefaultLayout = ({children, visibility}) => {
   return (
-    <div className="flex ">
-      <Navbar />
-      <div className='p-16 pl-20 w-full'>
+    <div className="flex">
+      <Navbar/>
+      <div className='p-7 md:p-16 md:pl-20 w-full pt-20 md:pt-0'>
       {children}
       </div>
     </div>
