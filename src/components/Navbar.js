@@ -19,7 +19,7 @@ const Navbar = () => {
         />
       </svg>
       </Link>
-      <Link to="/discover">
+      {/* <Link to="/discover">
       <svg
         width="24"
         height="24"
@@ -46,7 +46,7 @@ const Navbar = () => {
           fill="#F2F2F2"
         />
       </svg>
-      </Link>
+      </Link> */}
       
     </nav>
   );

@@ -17,9 +17,9 @@ const ArtistCard = ({ artistImgURL, artistName, link }) => {
           alt={artistName}
         />
       </div>
-      <Link to={link} className="cursor-pointer">
+      {/* <Link to={link} className="cursor-pointer"> */}
       <p className="text-xs hover:underline">{artistName}</p>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 };

@@ -45,11 +45,11 @@ const Home = () => {
               <p className="font-semibold text-base sm:text-lg md:text-xl">
                 Trending Songs
               </p>
-              <Link to="/trending-songs">
+              {/* <Link to="/trending-songs">
                 <p className="text-sm sm:text-base font-thin ml-3 text-gray-500 cursor-pointer hover:text-gray-400">
                   See all
                 </p>
-              </Link>
+              </Link> */}
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-4">
               {musics?.map((song, i) => (
