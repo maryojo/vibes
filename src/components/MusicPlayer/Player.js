@@ -1,30 +1,36 @@
 import React, { useRef, useEffect } from 'react';
-import { DefaultContext } from 'react-icons/lib';
-import SampleAudio from '../../assets/example.mp3'
 
 const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate, onLoadedData, repeat }) => {
-  const ref = useRef(null);
-  // eslint-disable-next-line no-unused-expressions
-  if (ref.current) {
-    if (isPlaying) {
-      ref.current.play();
-    } else {
-      ref.current.pause();
-    }
-  }
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    ref.current.volume = volume;
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.play().catch(error => {
+        console.error("Error playing audio:", error);
+      });
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
   }, [volume]);
   // updates audio element only on seekTime change (and not on each rerender):
   useEffect(() => {
-    ref.current.currentTime = seekTime;
+    if (audioRef.current) {
+      audioRef.current.currentTime = seekTime;
+    }
   }, [seekTime]);
 
   return (
     <audio
       src={activeSong?.hub?.actions[1]?.uri}
-      ref={ref}
+      ref={audioRef}
       loop={repeat}
       onEnded={onEnded}
       onTimeUpdate={onTimeUpdate}
